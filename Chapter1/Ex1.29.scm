@@ -1,0 +1,10 @@
+(define (simpson f a b n)
+    (define (func i)
+        (f (+ a (* (/ (- b a) n) i))))
+    (define (iter i)
+        (if (= i n) (func i)
+            (+ (* (if (even? i) 2 4) (func i)) (iter (+ i 1)))
+        ))
+    (* (/ (- b a) n 3) (+ (f 0) (iter 1))) 
+)
+
