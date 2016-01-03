@@ -1,0 +1,11 @@
+(define (cont-frac n d k)
+    (define (iter i)
+        (if (= i k)
+            (/ (n i) (d i))
+            (/ (n i) (+ (d i) (iter (+ i 1))))
+        ))
+    (iter 1))
+
+(define (tan-cf x k)
+  (cont-frac (lambda (t) (if (= t 1) x (- (* x x))))
+             (lambda (d) (- (* 2.0 d) 1)) k))
