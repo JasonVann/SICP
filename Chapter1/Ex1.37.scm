@@ -14,6 +14,10 @@
 ; k >= 11 so that it's accurate to 4 decimal places
 
 (define (cont-frac-iter n d k)
-    (define (iter i result)
-        (if (= i k)
-            (        
+  (define (iter i  result)
+    (if (= i 1) result
+          (iter (- i 1) (/ (n (- i 1)) (+ (d (- i 1)) result)))
+    )
+  )
+  (iter k (/ (n k) (d k)))
+) 
