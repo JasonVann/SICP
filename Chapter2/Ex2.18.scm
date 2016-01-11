@@ -4,4 +4,4 @@
         ((null? (cdr l))
                 (cons (car l) result))
         (else  (reverse-iter (cdr lst) (cons (car lst) result)))))
-  (reverse-iter l ()))
+  (reverse-iter l '()))
