@@ -7,3 +7,15 @@
             ((even? b) (mul (double a) (halve b)))
             (else (+ a (mul a (- b 1))))))
 
+; Iterative version
+(define (mul a b)
+(define (fast-mul a b res)
+  (define (double n) (* 2 n))
+  (define (halve n) (/ n 2))
+  (cond ((= b 1) res)
+        ((even? b) (fast-mul a (halve b) (double res)))
+        (else (fast-mul a (- b 1) (+ res a)))
+        ))
+  (fast-mul a b a)
+  )
+
