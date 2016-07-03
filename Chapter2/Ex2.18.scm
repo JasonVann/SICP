@@ -5,3 +5,9 @@
                 (cons (car l) result))
         (else  (reverse-iter (cdr lst) (cons (car lst) result)))))
   (reverse-iter l '()))
+
+; Alternatively
+(define (reverse l)
+    (foldl cons '() l)
+)
+
